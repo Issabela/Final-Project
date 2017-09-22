@@ -1,0 +1,42 @@
+{% load staticfiles %}
+<html lang="en" xmlns:top="http://www.w3.org/1999/xhtml" xmlns:position="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Math Quiz</title>
+    <link rel="stylesheet" href="{% static 'main.css' %}">
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css"
+          integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+</head>
+
+<body background="https://www.toptal.com/designers/subtlepatterns/patterns/swirl_pattern.png">
+<nav class="navbar navbar-inverse">
+    <div class="container">
+        <p class="navbar-text" id="title1">Math Quiz</p>
+    </div>
+</nav>
+<div class="input-group">
+    <div class="input-group-addon">{{ operand_one }} {{operation}} {{operand_two}} =</div>
+    <div class="input-group-addon">
+       <!--<form action="http://localhost:63342/TO_DO/todo_pm/todo/templates/results.html?_ijt=9sncgb1fjukmcdsbijmtnb16l7">-->
+        <form action="{% url 'results' %}" method = "POST" class="form-flex">
+            <div class="input-group-addon"><input type="number" name="answer" class="form-control" placeholder="your result!"></div>
+            <input type="hidden" name="id_quizz" value="{{ id_quizz }}"/>
+            <button type="submit">Results!</button>
+</form></div>
+</div><!-- /input-group -->
+
+
+<script
+          src="https://code.jquery.com/jquery-3.2.1.min.js"
+          integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+          crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+        integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+        crossorigin="anonymous"></script>
+</body>
+</html>
